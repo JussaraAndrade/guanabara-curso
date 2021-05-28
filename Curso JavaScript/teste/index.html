@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+</head>
+<body>
+
+  <!--  <input type="text" id="pesquisa"/>
+   <button type="button" id="button">Enviar</button> -->
+   <main class="content">
+   
+    <!--implementação menu-->
+    
+    <section class="filters">
+        <div class="name_box">
+            <input type="text" id="search_bar" placeholder="Nome do livro...">
+            <button id="search_button"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="advanced_filters">
+            <select name="category" id="category">
+                <option value="" selected="true" disabled="disabled">Selecione a categoria</option>
+                <option value="Auto Ajuda" id="1">Auto Ajuda</option>
+                <option value="Ficção Científica" id="2">Ficção Científica</option>
+                <option value="Fantasia" id="3">Fantasia</option>
+                <option value="Romance" id="4">Romance</option>
+            </select>
+            <select name="price_range" id="price_range">
+                <option value="" selected="true" disabled="disabled">Faixa de preço</option>
+                <option value="barato">R$1 - R$20</option>
+                <option value="medio">R$21 - R$40</option>
+                <option value="caro">R$41 - R$60</option>
+                <option value="mais caro">acima de R$61</option>
+            </select>
+        </div>
+    </section>
+
+    <section class="showcase">
+        <div class="card">
+            <img id="fotoLivros_1" alt="" width="300" height="400"/>
+            <div class="overlay">
+                <h2 id="tituloLivros_2" class="titulo-cor"></h2>
+                <p id="paragrafoLivros_3" class="paragrafo-cor"></p>
+            </div>
+        </div>
+        <div class="card">
+            <img id="fotoLivros_4" alt="" width="300" height="400"/>
+            <div class="overlay">
+                <h2 id="tituloLivros_5" class="titulo-cor"></h2>
+                <p id="paragrafoLivros_6" class="paragrafo-cor"></p>
+            </div>
+        </div>
+        <div class="card">
+            <img id="fotoLivros_7" alt="" width="300" height="400"/>
+            <div class="overlay">
+                <h2 id="tituloLivros_8" class="titulo-cor"></h2>
+                <p id="paragrafoLivros_9" class="paragrafo-cor"></p>
+            </div>
+        </div>
+        <div class="card">
+            <img id="fotoLivros_10" alt="" width="300" height="400"/>
+            <div class="overlay">
+                <h2 id="tituloLivros_11" class="titulo-cor"></h2>
+                <p id="paragrafoLivros_12" class="paragrafo-cor"></p>
+            </div>
+        </div>
+        <div class="card">
+            <img id="fotoLivros_13" alt="" width="300" height="400"/>
+            <div class="overlay">
+                <h2 id="tituloLivros_14" class="titulo-cor"></h2>
+                <p id="paragrafoLivros_15" class="paragrafo-cor"></p>
+            </div>
+            </div>
+        </div>
+        <div class="card">
+            <img id="listaLivros_6" alt="" width="300" height="400"/>
+            <div class="overlay">
+                <img id="fotoLivros_16" alt="" width="300" height="400"/>
+                <div class="overlay">
+                    <h2 id="tituloLivros_17" class="titulo-cor"></h2>
+                    <p id="paragrafoLivros_18" class="paragrafo-cor"></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <script type="text/javascript">
+
+    
+
+const listaLivros = [
+    {
+        id: 1,
+        titulo: "A Sutil Arte De Ligar O Foda-Se",
+        autor: "Mark Manson",
+        imagem: "http://lojasaraiva.vteximg.com.br/arquivos/ids/3241025/1008449071.jpg?v=637034105101630000",
+        descricao: "Chega de tentar buscar um sucesso que só existe na sua cabeça. Chega de se torturar para pensar positivo enquanto sua vida vai ladeira abaixo. Chega de se sentir inferior por não ver o lado bom de estar no fundo do poço. Coaching, autoajuda, desenvolvimento pessoal, mentalização positiva — sem querer desprezar o valor de nada disso, a grande verdade é que às vezes nos sentimos quase sufocados diante da pressão infinita por parecermos otimistas o tempo todo. ",
+        categoria: "Auto Ajuda"
+    },
+    {
+        id: 2,
+        titulo: "Nunca Foi Sorte",
+        autor: "Adriana Sant'anna",
+        imagem: "http://lojasaraiva.vteximg.com.br/arquivos/ids/12115159/1007686183.jpg?v=637142270453600000",
+        descricao: "A partir de sua história de vida, Adriana Sant’Anna traz ferramentas que ela mesma testou em sua rotina e fizeram com que deixasse para trás uma vida de derrotas e amargura para conquistar sucesso em todos os níveis. Se você quer transformar sua vida, desfrutar de saúde, bem-estar, relações amorosas sadias e prosperidade e não sabe de que maneira, ou, ainda, se você estiver enfrentando desafios, inspire-se e tenha coragem de mudar sua rota. ",
+        categoria: "Auto Ajuda"
+    },
+    {
+        id: 3,
+        titulo: "Star Wars - A Resistência Renasce",
+        autor: "Rebecca Roanhorse",
+        imagem: "http://lojasaraiva.vteximg.com.br/arquivos/ids/12117902/1009199683.jpg?v=637142280337700000",
+        descricao: "Batalhas serão travadas, alianças serão forjadas e a Resistência renascerá. Nesta história que se passa entre os filmes Star Wars: Os Últimos Jedi (2017) e o aguardado Star Wars: A Ascensão Skywalker, acompanharemos a General Leia Organa, Poe Dameron, Rey e Finn lutarem em prol da reconstrução da Resistência após sua grande perda nas mãos da Primeira Ordem.",
+        categoria: "Ficção Científica"
+    },
+    {
+        id: 4,
+        titulo: "A Queda De Gondolin",
+        autor: "J. R. R. Tolkien",
+        imagem: "http://lojasaraiva.vteximg.com.br/arquivos/ids/12113416/1006831004.jpg?v=637142264514430000",
+        descricao: "O último dos três Grandes Contos Perdidos do legendário de J.R.R.Tolkien narra a jornada de Tuor rumo à cidade secreta de Gondolin, refúgio élfico do povo do Rei Turgon. Contra a bela cidade, levanta-se Morgoth, o Inimigo Sombrio, com seu exército de seres malévolos.",
+        categoria: "Ficção Cientifíca"
+    },
+    {
+        id: 5,
+        titulo: "A Torre Negra",
+        autor: "C. S. Lewis",
+        imagem: "https://images.livrariasaraiva.com.br/imagemnet/imagem.aspx/?pro_id=9376106&qld=90&l=830&a=-1=1007943217",
+        descricao: "Continuação memorável das fantasias de C. S. Lewis, estas seis histórias revelam mais uma vez o poder e a visão deste importante contador de histórias, um dos nomes centrais da literatura de fantasia universal. A Torre Negra é um esboço de um quarto volume que daria continuidade à aclamada série de ficção científica de Lewis conhecida como Trilogia cósmica.",
+        categoria: "Fantasia"
+    },
+    {
+        id: 6,
+        titulo: "O nome do vento",
+        autor: "Patrick Rothfuss",
+        imagem: "https://images-na.ssl-images-amazon.com/images/I/51CumRhePVL._SX346_BO1,204,203,200_.jpg",
+        descricao: "Ninguém sabe ao certo quem é o herói ou o vilão desse fascinante universo criado por Patrick Rothfuss. Na realidade, essas duas figuras se concentram em Kote, um homem enigmático que se esconde sob a identidade de proprietário da hospedaria Marco do Percurso.",
+        categoria: "Fantasia"
+    },
+    {
+        id: 7,
+        titulo: "Romance com o Duque",
+        autor: "Tessa Dare",
+        imagem: "https://images-na.ssl-images-amazon.com/images/I/51CmTX70BQL._SX345_BO1,204,203,200_.jpg",
+        descricao: "“Izzy sempre sonhou em viver um conto de fadas. Mas, por ora, ela teria que se contentar com aquela história dramática.”A doce Isolde Ophelia Goodnight, filha de um escritor famoso, cresceu cercada por contos de fadas e histórias com finais felizes. Ela acreditava em destino, em sonhos e, principalmente, no amor verdadeiro.",
+        categoria: "Romance"
+    },
+    {
+        id: 8,
+        titulo: "Ao seu lado",
+        autor: "Kasie West ",
+        imagem: "https://images-na.ssl-images-amazon.com/images/I/51he3wIEopL._SX335_BO1,204,203,200_.jpg",
+        descricao: "O que fazer quando você se apaixona pela pessoa que menos esperaria? Depois de se ver trancada acidentalmente na biblioteca pelo fim de semana inteiro, Autumn Collins não acha que as coisas podem piorar. Mas ela percebe que não está sozinha. Dax Miller está trancado com ela. ",
+        categoria: "Romance"
+    }
+]
+
+//declara variaveis com dom
+const container = document.querySelector(".showcase");
+const filtrar = document.getElementById("search_button");
+const searchBar = document.getElementById("search_bar");
+const categoria = document.getElementById("category");
+
+
+listaLivros.forEach(livro => {
+    card = document.createElement("div");
+    card.setAttribute("class", "card");
+    //innerHTML 
+        card.innerHTML = `
+        <img src=${livro.imagem} id="card-img" />
+        <div class="overlay">
+            <h2>${livro.titulo}</h2>
+            <h3>${livro.autor}</h3>
+        </div>
+    `
+    container.appendChild(card);
+});
+
+filtrar.addEventListener("click", function() {
+    container.innerHTML = "";
+    const listaFiltrada = listaLivros.filter(livro => {
+        return livro.titulo === searchBar.value;
+        console.log(searchBar.value);
+    })
+
+ 
+    listaFiltrada.forEach(livro => {
+        card = document.createElement("div");
+        card.setAttribute("class", "card");
+        card.innerHTML = `
+        <img src=${livro.imagem} id="card-img" />
+        <div class="overlay">
+            <h2>${livro.titulo}</h2>
+            <h3>${livro.autor}</h3>
+            <p>${livro.descricao}</p>
+        </div>
+    `
+    container.appendChild(card);
+    
+        
+    })
+})
+
+
+/*     const lista =[
+        {
+            livro: "teste",
+            categoria: "Auto Ajuda",
+            preco: "5.00"
+        },    
+        {
+            livro: "teste",
+            categoria: "Ficção Cientifica",
+            preco: "8.00"
+        }    
+    ]
+
+    const container = document.getElementById("lista-livros")
+    const filtar = document.getElementById("filtrar")
+
+    lista.forEach(livro =>{
+        livroBox = document.createElement("div")
+        livroBox.setAttribute("class", "livro-box")
+        livroBox.innerHTML = `<h2>${livro.livro}</h2><p>${livro.categoria}</p><p>${livro.preco}</p>`
+        container.appendChild(livroBox);
+    })
+
+    filtar.addEventListener("click", function(){
+        container.innerHTML = "";
+        const listaFiltrada = lista.filter(livro =>{
+            return livro.livro === "Auto Ajuda";
+        })
+        listaFiltrada.forEach(filme =>{
+            livroBox = document.createElement("div")
+            livroBox.setAttribute("class", "livro-box")
+            livroBox.innerHTML = `<h2>${livro.livro}</h2><p>${livro.categoria}</p><p>${livro.preco}</p>`
+            container.appendChild(livroBox);
+        })
+
+    })
+ */
+
+ 
+        
+ 
+
+//  button.addEventListener("click", pesquisa);
+
+
+
+
+     /*   const container = document.getElementById("filmes")
+       const listaLivros = [
+            {
+                titulo: "teste", 
+                texto: "teste",
+                image: "../image/book-1.jpg"
+            },
+            {
+                titulo: "teste1", 
+                texto: "teste1",
+                image: "../image/book-2.jpg"
+            }
+        ]
+
+       listaLivros.forEach(livros =>{
+           let bookBox = document.createElement("div")
+           bookBox.innerHTML = `<h2>${livros.titulo}</h2><p>${livros.texto}</p><img src='${livros.image}'/>`
+           container.appendChild(bookBox); 
+       }) 
+
+/*  const imageCarousel = document.getElementById("arrayImages");
+    const imageCarousel1 = document.getElementById("arrayImages1")
+    const listaLivros = [
+        
+         '../image/book-1.jpg', 
+         '../image/book-2.jpg', 
+         ];
+    
+         imageCarousel.setAttribute("src",listaLivros[0]);
+         imageCarousel1.setAttribute("src", listaLivros[1]); */
+
+   
+    /* const container = document.getElementById("filmes")
+       const listaLivros = [
+            {
+                titulo: "teste", 
+                texto: "teste",
+                image: "../image/book-1.jpg"
+            },
+            {
+                titulo: "teste1", 
+                texto: "teste1",
+                image: "../image/book-2.jpg"
+            }
+        ];
+
+        listaLivros.forEach(livros =>{
+           let bookBox = document.createElement("div")
+           if(livros.titulo == 'teste'){
+           bookBox.innerHTML = `<h2>${livros.titulo}</h2><p>${livros.texto}</p><img src='${livros.image}'/>`
+           }else{
+            bookBox.innerHTML = `<h2>${livros.titulo}</h2><p>${livros.texto}</p><img src='${livros.image}'/>`
+           }
+           container.appendChild(bookBox); 
+       })  */
+       
+
+       /*  listaLivros.forEach(livros =>{ 
+            let bookBox = document.createElement("div")
+        if(livros.titulo == 'teste'){
+            document.getElementById("demo_1").innerHTML = "The car type is " + livros.titulo+ " " + livros.texto +  "<img src='${livros.image}'/>";
+        }else{
+            document.getElementById("demo_2").innerHTML = "The car type is " + livros.titulo+ " " +livros.texto;
+        }
+      
+        
+       }) */
+        
+
+     
+     
+
+  
+    
+
+    </script>
+</body>
+</html>

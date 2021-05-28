@@ -1,0 +1,18 @@
+/*
+  DDL - Linguagem de definição de linguagem
+	CREATE DATABASE
+	CREATE TABLE
+	ALTER TABLE
+	DROP TABLE - Apaga os dados e a tabela
+	
+  DML - Linguagem de manipulação de dados
+	INSERT INTO
+	UPDATE 
+	DELETE
+	TRUNCATE - Apaga os dados e não a tabela
+	SELECT
+	
+  DQL - Linguagem para pergunta/questionamento
+	SELECT
+	
+*/
